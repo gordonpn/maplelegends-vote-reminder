@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "proxy-server"
+version = "0.1.0"
+description = ""
+authors = ["Gordon Pham-Nguyen <gordon.pn6@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^2.1.2"
+pymongo = "^4.1.1"
+gunicorn = "^20.1.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+bandit = "^1.7.4"
+black = "^22.3.0"
+flake8 = "^4.0.1"
+mypy = "^0.960"
+prospector = "^1.7.7"
+pycodestyle = "^2.8.0"
+pylint = "^2.14.0"
+python-dotenv = "^0.20.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
