@@ -1,0 +1,43 @@
+version: "3.8"
+services:
+  mongodb:
+    image: mongo:5
+    environment:
+      - MONGO_INITDB_DATABASE
+      - MONGO_INITDB_ROOT_PASSWORD
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_NON_ROOT_PASSWORD
+      - MONGO_NON_ROOT_ROLE=readWrite
+      - MONGO_NON_ROOT_USERNAME
+    volumes:
+      - ./.docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+
+  proxy:
+    build:
+      context: ./proxy-server
+    environment:
+      - APP_ENV
+      - FLASK_ENV
+      - MONGO_HOST=mongodb
+      - MONGO_INITDB_DATABASE
+      - MONGO_NON_ROOT_PASSWORD
+      - MONGO_NON_ROOT_USERNAME
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+
+  bot:
+    build:
+      context: ./discord-bot
+    environment:
+      - APP_ENV
+      - BOT_TOKEN
+      - MONGO_HOST=mongodb
+      - MONGO_INITDB_DATABASE
+      - MONGO_NON_ROOT_PASSWORD
+      - MONGO_NON_ROOT_USERNAME
+      - DOMAIN
+    restart: unless-stopped
+    depends_on:
+      - mongodb

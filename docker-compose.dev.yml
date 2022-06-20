@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+
+  mongodb:
+    container_name: maplelegends_vote_reminder-mongodb_dev
+    volumes:
+      - dev_mongodb-maplelegends_vote_reminder:/data/db
+    ports:
+      - "127.0.0.1:27017:27017"
+
+  proxy:
+    container_name: maplelegends_vote_reminder-proxy_server_dev
+    build:
+      target: development
+    environment:
+      - APP_ENV=developement
+      - FLASK_ENV=development
+    ports:
+      - "127.0.0.1:5000:5000"
+
+  bot:
+    container_name: maplelegends_vote_reminder-discord_bot_dev
+    environment:
+      - APP_ENV=developement
+      - DOMAIN=http://127.0.0.1:5000
+
+
+volumes:
+  dev_mongodb-maplelegends_vote_reminder:
+    name: dev_mongodb-maplelegends_vote_reminder
