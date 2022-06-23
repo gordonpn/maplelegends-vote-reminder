@@ -29,6 +29,7 @@ jobs:
           version: latest
 
       - name: Build Docker images and publish
+        working-directory: ${{ matrix.project }}
         env:
           BRANCH: ${{ matrix.branches }}
           PROJECT: ${{ matrix.project }}
