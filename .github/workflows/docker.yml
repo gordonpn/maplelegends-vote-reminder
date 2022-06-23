@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         project: [discord-bot, proxy-server]
-        branches: [master]
+        branches: [main]
 
     runs-on: ubuntu-latest
 
