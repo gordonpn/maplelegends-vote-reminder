@@ -1,0 +1,32 @@
+---
+kind: pipeline
+name: notification build started
+steps:
+- failure: ignore
+  image: plugins/slack
+  name: notification
+  settings:
+    channel: drone-ci
+    template: |
+      build started
+      {{ uppercasefirst build.event }} on branch {{ build.branch }} from repo {{repo.name}}
+      <{{ build.link }}|Visit build #{{build.number}} page ➡️>
+    webhook:
+      from_secret: SLACK_WEBHOOK_URL
+type: docker
+---
+kind: pipeline
+name: notification build finished
+steps:
+- failure: ignore
+  image: plugins/slack
+  name: notification
+  settings:
+    channel: drone-ci
+    template: |
+      build finished
+      {{ uppercasefirst build.event }} on branch {{ build.branch }} from repo {{repo.name}}
+      <{{ build.link }}|Visit build #{{build.number}} page ➡️>
+    webhook:
+      from_secret: SLACK_WEBHOOK_URL
+type: docker
