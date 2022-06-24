@@ -24,6 +24,10 @@ services:
       - APP_ENV=developement
       - DOMAIN=http://127.0.0.1:4000
 
+  nginx:
+    container_name: maplelegends_vote_reminder-nginx_dev
+    ports:
+      - "127.0.0.1:4000:80"
 
 volumes:
   dev_mongodb-maplelegends_vote_reminder:

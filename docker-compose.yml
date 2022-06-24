@@ -41,3 +41,10 @@ services:
     restart: unless-stopped
     depends_on:
       - mongodb
+
+  nginx:
+    build:
+      context: ./nginx
+    restart: unless-stopped
+    depends_on:
+      - proxy
