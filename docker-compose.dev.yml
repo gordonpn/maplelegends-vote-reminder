@@ -22,7 +22,7 @@ services:
     container_name: maplelegends_vote_reminder-discord_bot_dev
     environment:
       - APP_ENV=developement
-      - DOMAIN=http://127.0.0.1:5000
+      - DOMAIN=http://127.0.0.1:4000
 
 
 volumes:

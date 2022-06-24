@@ -45,5 +45,5 @@ CMD ["flask", "run"]
 
 FROM base as production
 
-EXPOSE 8000
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers=4", "--threads=1", "proxy_server:create_app()"]
+EXPOSE 5000
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers=4", "--threads=1", "proxy_server:create_app()"]
