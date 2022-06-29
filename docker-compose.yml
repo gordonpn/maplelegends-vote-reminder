@@ -24,8 +24,6 @@ services:
       - MONGO_NON_ROOT_PASSWORD
       - MONGO_NON_ROOT_USERNAME
     restart: unless-stopped
-    depends_on:
-      - mongodb
 
   bot:
     build:
@@ -39,12 +37,8 @@ services:
       - MONGO_NON_ROOT_USERNAME
       - DOMAIN
     restart: unless-stopped
-    depends_on:
-      - mongodb
 
   nginx:
     build:
       context: ./nginx
     restart: unless-stopped
-    depends_on:
-      - proxy
