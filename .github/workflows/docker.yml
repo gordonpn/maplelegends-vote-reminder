@@ -47,7 +47,7 @@ jobs:
     steps:
       - name: Notify Drone CI
         run: |
-          curl --request -X POST \
+          curl --request POST \
           --url https://drone.gordon-pn.com/api/repos/${{ github.repository }}/builds \
           --header 'Authorization: Bearer ${{ secrets.DRONE_AUTH_BEARER_TOKEN }}' \
           --fail
