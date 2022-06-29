@@ -19,7 +19,7 @@ steps:
       from_secret: MONGO_NON_ROOT_PASSWORD
     MONGO_NON_ROOT_USERNAME:
       from_secret: MONGO_NON_ROOT_USERNAME
-  image: docker:20.10.14
+  image: docker:20.10.12
   name: deploy prod
   volumes:
   - name: dockersock
@@ -42,7 +42,7 @@ steps:
     - failure
 trigger:
   event:
-  - push
+  - custom
 type: docker
 volumes:
 - host:

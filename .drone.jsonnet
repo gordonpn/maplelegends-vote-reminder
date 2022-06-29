@@ -22,11 +22,11 @@ local deploy = {
   kind: 'pipeline',
   type: 'docker',
   name: 'deploy',
-  trigger: { event: ['push'] },
+  trigger: { event: ['custom'] },
   steps: [
     {
       name: 'deploy prod',
-      image: 'docker:20.10.14',
+      image: 'docker:20.10.12',
       environment: {
         BOT_TOKEN: { from_secret: 'BOT_TOKEN' },
         MONGO_INITDB_DATABASE: { from_secret: 'MONGO_INITDB_DATABASE' },
