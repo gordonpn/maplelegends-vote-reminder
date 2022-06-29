@@ -8,6 +8,9 @@ up: ## Bring up dev stack with docker compose
 config: ## Print docker compose dev stack
 	docker compose -f docker-compose.yml -f docker-compose.dev.yml config
 
+config-prod: ## Print docker compose prod stack
+	docker compose -f docker-compose.yml -f docker-compose.prod.yml config
+
 db: ## Start an interactive mongo shell for the dev db
 	source .env && docker exec -it maplelegends-vote-reminder-mongodb-dev mongosh "mongodb://127.0.0.1:27017/$$MONGO_INITDB_DATABASE" --username $$MONGO_NON_ROOT_USERNAME --password $$MONGO_NON_ROOT_PASSWORD
 

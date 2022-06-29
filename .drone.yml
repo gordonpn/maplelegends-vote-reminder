@@ -1,32 +1,50 @@
 ---
 kind: pipeline
-name: notification build started
+name: deploy
 steps:
+- commands:
+  - apk update && apk --no-cache add bash curl docker-compose && curl --version &&
+    bash --version && docker-compose version
+  - /bin/bash /drone/src/docker/scripts/deploy.sh
+  environment:
+    BOT_TOKEN:
+      from_secret: BOT_TOKEN
+    MONGO_INITDB_DATABASE:
+      from_secret: MONGO_INITDB_DATABASE
+    MONGO_INITDB_ROOT_PASSWORD:
+      from_secret: MONGO_INITDB_ROOT_PASSWORD
+    MONGO_INITDB_ROOT_USERNAME:
+      from_secret: MONGO_INITDB_ROOT_USERNAME
+    MONGO_NON_ROOT_PASSWORD:
+      from_secret: MONGO_NON_ROOT_PASSWORD
+    MONGO_NON_ROOT_USERNAME:
+      from_secret: MONGO_NON_ROOT_USERNAME
+  image: docker:20.10.14
+  name: deploy prod
+  volumes:
+  - name: dockersock
+    path: /var/run/docker.sock
 - failure: ignore
   image: plugins/slack
-  name: notification
+  name: failure notification
   settings:
     channel: drone-ci
     template: |
-      build started
-      {{ uppercasefirst build.event }} on branch {{ build.branch }} from repo {{repo.name}}
+      Deploy failed
+      Commit: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
+      Branch: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commits/{{ build.branch }}|{{ build.branch }}>
+      Author: {{ build.author }}
       <{{ build.link }}|Visit build #{{build.number}} page ➡️>
     webhook:
       from_secret: SLACK_WEBHOOK_URL
+  when:
+    status:
+    - failure
+trigger:
+  event:
+  - push
 type: docker
----
-kind: pipeline
-name: notification build finished
-steps:
-- failure: ignore
-  image: plugins/slack
-  name: notification
-  settings:
-    channel: drone-ci
-    template: |
-      build finished
-      {{ uppercasefirst build.event }} on branch {{ build.branch }} from repo {{repo.name}}
-      <{{ build.link }}|Visit build #{{build.number}} page ➡️>
-    webhook:
-      from_secret: SLACK_WEBHOOK_URL
-type: docker
+volumes:
+- host:
+    path: /var/run/docker.sock
+  name: dockersock

@@ -10,7 +10,7 @@ services:
       - MONGO_NON_ROOT_ROLE=readWrite
       - MONGO_NON_ROOT_USERNAME
     volumes:
-      - ./.docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     restart: unless-stopped
 
   proxy:
