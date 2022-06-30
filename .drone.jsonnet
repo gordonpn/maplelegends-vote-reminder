@@ -68,7 +68,9 @@ local clone_workspace = {
       },
       commands: [
         'apk update && apk --no-cache add bash git && git --version && bash --version',
-        'if cd /home; then git pull; else git clone "${DRONE_GIT_HTTP_URL}" /home; fi',
+        'cd /home || exit 1',
+        '[ -d ".git" ] && git pull && exit 0',
+        'git clone "${DRONE_GIT_HTTP_URL}" /home',
       ],
       volumes: [{
         name: project_workspace,
