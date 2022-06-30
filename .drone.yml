@@ -55,6 +55,8 @@ steps:
 - commands:
   - apk update && apk --no-cache add bash git && git --version && bash --version
   - if cd /home; then git pull; else git clone "${DRONE_GIT_HTTP_URL}" /home; fi
+  environment:
+    GIT_DISCOVERY_ACROSS_FILESYSTEM: 1
   image: alpine
   name: clone workspace
   volumes:

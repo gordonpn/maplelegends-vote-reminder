@@ -63,6 +63,9 @@ local clone_workspace = {
     {
       name: 'clone workspace',
       image: 'alpine',
+      environment: {
+        GIT_DISCOVERY_ACROSS_FILESYSTEM: 1,
+      },
       commands: [
         'apk update && apk --no-cache add bash git && git --version && bash --version',
         'if cd /home; then git pull; else git clone "${DRONE_GIT_HTTP_URL}" /home; fi',
