@@ -58,7 +58,7 @@ steps:
   image: alpine
   name: clone workspace
   volumes:
-  - name: workspace
+  - name: projectworkspace
     path: /home
 - failure: ignore
   image: plugins/slack
@@ -83,4 +83,4 @@ type: docker
 volumes:
 - host:
     path: /mnt/glusterfs/docker/maplelegends_vote_reminder/workspace
-  name: workspace
+  name: projectworkspace

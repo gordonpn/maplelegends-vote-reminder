@@ -52,6 +52,8 @@ local deploy = {
   }],
 };
 
+local project_workspace = 'projectworkspace';
+
 local clone_workspace = {
   kind: 'pipeline',
   type: 'docker',
@@ -66,14 +68,14 @@ local clone_workspace = {
         'if cd /home; then git pull; else git clone "${DRONE_GIT_HTTP_URL}" /home; fi',
       ],
       volumes: [{
-        name: 'workspace',
+        name: project_workspace,
         path: '/home',
       }],
     },
     failure_notification,
   ],
   volumes: [{
-    name: 'workspace',
+    name: project_workspace,
     host: { path: '/mnt/glusterfs/docker/maplelegends_vote_reminder/workspace' },
   }],
 };
