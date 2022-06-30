@@ -122,7 +122,7 @@ services:
         - "traefik.http.services.maplelegends_vote_reminder.loadbalancer.server.port=80"
         - "traefik.docker.network=traefik-public"
         - "traefik.http.routers.maplelegends_vote_reminder.entrypoints=websecure"
-        - "traefik.http.routers.maplelegends_vote_reminder.middlewares=oauth@file, secured_headers@file"
+        - "traefik.http.routers.maplelegends_vote_reminder.middlewares=secured_headers@file"
         - "traefik.http.routers.maplelegends_vote_reminder.service=maplelegends_vote_reminder@docker"
         - "traefik.http.routers.maplelegends_vote_reminder.tls=true"
         - "traefik.http.routers.maplelegends_vote_reminder.tls.certresolver=leresolver"
