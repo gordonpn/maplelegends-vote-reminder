@@ -68,6 +68,7 @@ local clone_workspace = {
       },
       commands: [
         'apk update && apk --no-cache add bash git && git --version && bash --version',
+        'git config --global --add safe.directory /home',
         'cd /home || exit 1',
         '[ -d ".git" ] && git pull && exit 0',
         'git clone "${DRONE_GIT_HTTP_URL}" /home',
