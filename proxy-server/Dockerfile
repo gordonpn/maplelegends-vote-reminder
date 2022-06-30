@@ -40,10 +40,8 @@ ENV FLASK_APP=proxy_server \
   FLASK_ENV=development
 
 EXPOSE 5000
-ENTRYPOINT ["poetry", "run"]
-CMD ["flask", "run"]
+CMD ["poetry", "run", "flask", "run"]
 
 FROM base as production
-
 EXPOSE 5000
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers=4", "--threads=1", "proxy_server:create_app()"]
+CMD ["poetry", "run", "gunicorn", "--bind", "0.0.0.0:5000", "--workers=4", "--threads=1", "proxy_server:create_app()"]
