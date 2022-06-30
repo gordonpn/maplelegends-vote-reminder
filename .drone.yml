@@ -30,7 +30,7 @@ steps:
   settings:
     channel: drone-ci
     template: |
-      Deploy failed
+      Deployment failed
       Commit: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
       Branch: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commits/{{ build.branch }}|{{ build.branch }}>
       Author: {{ build.author }}
@@ -56,7 +56,7 @@ steps:
   - apk update && apk --no-cache add bash git && git --version && bash --version
   - git config --global --add safe.directory /home
   - cd /home || exit 1
-  - '[ -d ".git" ] && git pull && exit 0'
+  - '[ -d ".git" ] && git fetch --all --prune && git reset --hard && exit 0'
   - git clone "${DRONE_GIT_HTTP_URL}" /home
   environment:
     GIT_DISCOVERY_ACROSS_FILESYSTEM: 1
@@ -71,7 +71,7 @@ steps:
   settings:
     channel: drone-ci
     template: |
-      Deploy failed
+      Cloning failed
       Commit: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
       Branch: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commits/{{ build.branch }}|{{ build.branch }}>
       Author: {{ build.author }}
