@@ -52,4 +52,33 @@ local deploy = {
   }],
 };
 
-[deploy]
+local clone_workspace = {
+  kind: 'pipeline',
+  type: 'docker',
+  name: 'clone workspace to host filesystem',
+  trigger: { event: ['push'] },
+  steps: [
+    {
+      name: 'clone workspace',
+      image: 'alpine',
+      commands: [
+        'apk update && apk --no-cache add bash git && git --version && bash --version',
+        'if cd /home; then git pull; else git clone "${DRONE_GIT_HTTP_URL}" /home; fi',
+      ],
+      volumes: [{
+        name: 'workspace',
+        path: '/home',
+      }],
+    },
+    failure_notification,
+  ],
+  volumes: [{
+    name: 'workspace',
+    host: { path: '/mnt/glusterfs/docker/maplelegends_vote_reminder/workspace' },
+  }],
+};
+
+[
+  deploy,
+  clone_workspace,
+]

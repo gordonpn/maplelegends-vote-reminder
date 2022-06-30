@@ -48,3 +48,39 @@ volumes:
 - host:
     path: /var/run/docker.sock
   name: dockersock
+---
+kind: pipeline
+name: clone workspace to host filesystem
+steps:
+- commands:
+  - apk update && apk --no-cache add bash git && git --version && bash --version
+  - if cd /home; then git pull; else git clone "${DRONE_GIT_HTTP_URL}" /home; fi
+  image: alpine
+  name: clone workspace
+  volumes:
+  - name: workspace
+    path: /home
+- failure: ignore
+  image: plugins/slack
+  name: failure notification
+  settings:
+    channel: drone-ci
+    template: |
+      Deploy failed
+      Commit: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
+      Branch: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commits/{{ build.branch }}|{{ build.branch }}>
+      Author: {{ build.author }}
+      <{{ build.link }}|Visit build #{{build.number}} page ➡️>
+    webhook:
+      from_secret: SLACK_WEBHOOK_URL
+  when:
+    status:
+    - failure
+trigger:
+  event:
+  - push
+type: docker
+volumes:
+- host:
+    path: /mnt/glusterfs/docker/maplelegends_vote_reminder/workspace
+  name: workspace
