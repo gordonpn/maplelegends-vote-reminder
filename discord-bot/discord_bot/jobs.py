@@ -25,7 +25,7 @@ async def topg_check(client: discord.Client):
         result = requests.get(url).json()
         if result["canvote"]:
             discord_user = await client.fetch_user(user["discord_id"])
-            logger.debug("User %s can vote on topg", discord_user)
+            logger.info("User %s can vote on topg; sending message", discord_user)
             await discord_user.send(
                 f"Time to vote on TopG!\nhttps://topg.org/maplestory-private-servers/in-605064-{username}"  # noqa: E501 pylint: disable=line-too-long
             )
@@ -55,8 +55,15 @@ async def gtop_check(client: discord.Client):
         last_midnight = datetime(
             today.year, today.month, today.day, 0, 0, 0, tzinfo=timezone.utc
         )
-        if last_vote_timestamp < last_midnight:
-            logger.debug("User %s can vote on gtop", username)
+        user_can_vote = last_vote_timestamp < last_midnight
+        logger.info(
+            "last_vote_timestamp(%s) < last_midnight(%s): %s",
+            last_vote_timestamp,
+            last_midnight,
+            user_can_vote,
+        )
+        if user_can_vote:
+            logger.info("User %s can vote on gtop; sending message", username)
             discord_user = await client.fetch_user(user["discord_id"])
             domain = os.getenv("DOMAIN")
             await discord_user.send(
