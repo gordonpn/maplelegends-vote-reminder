@@ -4,7 +4,7 @@ import datetime
 import logging
 import os
 
-from flask import Flask, redirect
+from flask import Flask, redirect, request
 from flask.logging import create_logger
 from markupsafe import escape
 
@@ -31,6 +31,8 @@ def create_app():
         Returns:
             Response: redirect
         """
+        user_agent = request.headers.get("User-Agent")
+        log.info("user agent %s", user_agent)
         username = escape(username)
         log.info("user voted: %s", username)
 
