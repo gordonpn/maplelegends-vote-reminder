@@ -3,6 +3,7 @@ __version__ = "0.1.0"
 import datetime
 import logging
 import os
+import re
 
 from flask import Flask, redirect, request
 from flask.logging import create_logger
@@ -32,15 +33,17 @@ def create_app():
             Response: redirect
         """
         user_agent = request.headers.get("User-Agent")
-        log.info("user agent %s", user_agent)
         username = escape(username)
-        log.info("user voted: %s", username)
+        log.info("user %s clicked with user-agent:\n %s", username, user_agent)
 
-        recorded_time = datetime.datetime.now(datetime.timezone.utc)
-        result = database.get_timestamp_collection().insert_one(
-            document={"timestamp": recorded_time, "username": username}
-        )
-        log.debug("Insertion ID: %s", result.inserted_id)
+        # Regex negative lookahead
+        # If it does not contain the discordbot substring then record the timestamp
+        if re.search("^(?!.*Discordbot).*$", user_agent, re.IGNORECASE):
+            recorded_time = datetime.datetime.now(datetime.timezone.utc)
+            result = database.get_timestamp_collection().insert_one(
+                document={"timestamp": recorded_time, "username": username}
+            )
+            log.debug("Insertion ID: %s", result.inserted_id)
 
         return redirect(
             f"https://gtop100.com/topsites/MapleStory/sitedetails/MapleLegends-v62-Closed-Beta-87398?vote=1&pingUsername={username}",  # noqa: E501 pylint: disable=line-too-long
