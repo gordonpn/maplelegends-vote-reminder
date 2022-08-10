@@ -18,4 +18,4 @@ async def schedule_periodically(interval_in_seconds, periodic_function, *args):
             # Catch all exceptions for now to see what is thrown
             logger.error("Caught an exception:\n%s\n", exception)
             logger.error(traceback.format_exc())
-            asyncio.sleep(FORTY_FIVE_MINUTES)
+            await asyncio.sleep(FORTY_FIVE_MINUTES)
