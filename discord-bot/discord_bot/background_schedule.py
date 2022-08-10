@@ -7,6 +7,7 @@ import traceback
 async def schedule_periodically(interval_in_seconds, periodic_function, *args):
     """Helper method to schedule tasks periodically using asyncio"""
     logger = logging.getLogger("discord_bot")
+    FORTY_FIVE_MINUTES = 2700
     while True:
         try:
             await asyncio.gather(
@@ -17,3 +18,4 @@ async def schedule_periodically(interval_in_seconds, periodic_function, *args):
             # Catch all exceptions for now to see what is thrown
             logger.error("Caught an exception:\n%s\n", exception)
             logger.error(traceback.format_exc())
+            asyncio.sleep(FORTY_FIVE_MINUTES)
