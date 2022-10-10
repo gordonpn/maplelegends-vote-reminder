@@ -82,7 +82,7 @@ local clone_workspace = {
   ],
   volumes: [{
     name: project_workspace,
-    host: { path: '/mnt/glusterfs/docker/maplelegends_vote_reminder/workspace' },
+    host: { path: '/mnt/share/docker/maplelegends_vote_reminder/workspace' },
   }],
 };
 
