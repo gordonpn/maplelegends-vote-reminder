@@ -2,7 +2,7 @@ version: "3.8"
 services:
   mongodb:
     container_name: maplelegends_vote_reminder-mongodb
-    user: "gordonpn"
+    user: "1001:1001"
     volumes:
       - /mnt/share/docker/maplelegends_vote_reminder/mongodb:/data
       - /mnt/share/docker/maplelegends_vote_reminder/workspace/docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
@@ -28,6 +28,7 @@ services:
       placement:
         constraints:
           - node.labels.persistence == true
+          - node.labels.name != dev
 
   proxy:
     container_name: maplelegends_vote_reminder-proxy_server
