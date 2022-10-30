@@ -3,7 +3,7 @@ services:
   mongodb:
     container_name: maplelegends_vote_reminder-mongodb
     volumes:
-      - /mnt/share/docker/maplelegends_vote_reminder/mongodb:/data
+      - /mnt/share/docker/maplelegends_vote_reminder/mongodb:/data/db
       - /mnt/share/docker/maplelegends_vote_reminder/workspace/docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     networks:
       - maplelegends_vote_reminder
