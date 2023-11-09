@@ -1,0 +1,325 @@
+repo_name: gordonpn/maplelegends-vote-reminder
+report_id: cefe9c10f77bb2c0507124e1b086b28a
+repo_type: Public
+timestamp: '2023-11-09T13:06:24+00:00'
+requested_by: gordonpn
+provider: github
+branch: main
+detected_tools_count: 25
+tools:
+- name: Jsonnet
+  description: A data templating language for app and tool developers
+  website_url: https://jsonnet.org
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Templating Languages & Extensions
+  image_url: https://img.stackshare.io/service/10435/preview.jpeg
+  detection_source: Repo Metadata
+- name: Python
+  description: A clear and powerful object-oriented programming language, comparable
+    to Perl, Ruby, Scheme, or Java.
+  website_url: https://www.python.org
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/993/pUBY5pVj.png
+  detection_source: Repo Metadata
+- name: MongoDB
+  description: The database for giant ideas
+  website_url: http://www.mongodb.com/
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Databases
+  image_url: https://img.stackshare.io/service/1030/leaf-360x360.png
+  detection_source: proxy-server/proxy_server/database.py
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:48:59.000000000 Z
+- name: Docker
+  description: Enterprise Container Platform for High-Velocity Innovation.
+  website_url: https://www.docker.com/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Virtual Machine Platforms & Containers
+  image_url: https://img.stackshare.io/service/586/n4u37v9t_400x400.png
+  detection_source: Repo Metadata
+- name: Docker Compose
+  description: Define and run multi-container applications with Docker
+  website_url: https://github.com/docker/compose
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Container Tools
+  image_url: https://img.stackshare.io/service/3136/docker-compose.png
+  detection_source: docker-compose.yml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-29 18:57:31.000000000 Z
+- name: Drone.io
+  description: Open source continuous integration platform built on Docker
+  website_url: https://drone.io/
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/668/R_wMcCqN_400x400.png
+  detection_source: ".drone.yml"
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-30 04:30:56.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source: Repo Metadata
+- name: GitHub Actions
+  description: Automate your workflow from idea to production
+  website_url: https://github.com/features/actions
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/11563/actions.png
+  detection_source: ".github/workflows/terraform.yml"
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-29 20:36:24.000000000 Z
+- name: NGINX
+  description: A high performance free open source web server powering busiest sites
+    on the Internet.
+  website_url: http://nginx.org
+  open_source: false
+  hosted_saas: false
+  category: Application Hosting
+  sub_category: Web Servers
+  image_url: https://img.stackshare.io/service/1052/YMxUfyWf.png
+  detection_source: nginx/nginx.conf
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-24 04:10:25.000000000 Z
+- name: PyPI
+  description: A repository of software for the Python programming language
+  website_url: https://pypi.org/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Hosted Package Repository
+  image_url: https://img.stackshare.io/service/12572/-RIWgodF_400x400.jpg
+  detection_source: proxy-server/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:44:47.000000000 Z
+- name: Mongo
+  description: Heroku provides services and tools to build, run, and scale web applications.
+    Follow @herokustatus for platform updates. A @salesforce company.
+  website_url: http://wedesignapps.herokuapp.com
+  open_source: false
+  hosted_saas: false
+  image_url: https://img.stackshare.io/service/3519/3wgIDj3j_normal.png
+  detection_source: docker-compose.yml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-30 14:54:18.000000000 Z
+- name: Shell
+  description: A shell is a text-based terminal, used for manipulating programs and
+    files. Shell scripts typically manage program execution.
+  website_url: https://en.wikipedia.org/wiki/Shell_script
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png
+  detection_source: Repo Metadata
+- name: Flask
+  description: A simple framework for building complex web applications
+  package_url: https://pypi.org/Flask
+  version: 2.1.2
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19834/default_58dbe7b4d7ec447b62773209af0f9a31bbabf5bd.png
+  detection_source_url: proxy-server/pyproject.toml
+  detection_source: proxy-server/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:44:47.000000000 Z
+- name: bandit
+  description: Security oriented static analyser for python code
+  package_url: https://pypi.org/bandit
+  version: 1.7.4
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: discord-bot/poetry.lock
+  detection_source: proxy-server/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:48:59.000000000 Z
+- name: black
+  description: The uncompromising code formatter
+  package_url: https://pypi.org/black
+  version: 22.6.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20099/default_029b9bbfb6be2cd34bebeda5b8e1e80a1d22441c.png
+  detection_source_url: discord-bot/poetry.lock
+  detection_source: proxy-server/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:48:59.000000000 Z
+- name: discord.py
+  description: A python wrapper for the Discord API
+  package_url: https://pypi.org/discord.py
+  version: 1.7.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20460/default_9a2df92d685d6540be25228e6b33cb090554923a.png
+  detection_source_url: discord-bot/poetry.lock
+  detection_source: discord-bot/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:48:59.000000000 Z
+- name: flake8
+  description: 'The modular source code checker: pep8, pyflakes and co'
+  package_url: https://pypi.org/flake8
+  version: 4.0.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19920/default_c8be5290cb8d8a8b578535a2c6475d1057ff4ea4.png
+  detection_source_url: discord-bot/poetry.lock
+  detection_source: proxy-server/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:48:59.000000000 Z
+- name: gunicorn
+  description: WSGI HTTP Server for UNIX
+  package_url: https://pypi.org/gunicorn
+  version: 20.1.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19931/default_74a0c20721d3a0a1484d69586401591fe8993db2.png
+  detection_source_url: proxy-server/poetry.lock
+  detection_source: proxy-server/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:44:47.000000000 Z
+- name: mypy
+  description: Optional static typing for Python
+  package_url: https://pypi.org/mypy
+  version: '0.950'
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20219/default_d4dd0466552a9776ca8535b869e22a3362790c94.png
+  detection_source_url: discord-bot/poetry.lock
+  detection_source: proxy-server/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:48:59.000000000 Z
+- name: pycodestyle
+  description: Python style guide checker
+  package_url: https://pypi.org/pycodestyle
+  version: 2.8.0
+  license: Saxpath
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20145/default_a55249b25c76872ebbee6b173a63c5fce36136f9.png
+  detection_source_url: discord-bot/poetry.lock
+  detection_source: proxy-server/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:48:59.000000000 Z
+- name: pylint
+  description: Python code static checker
+  package_url: https://pypi.org/pylint
+  version: 2.14.5
+  license: GPL-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19980/default_a82f3cd9981909e38152c6f66eefe94bed2aa5ca.png
+  detection_source_url: discord-bot/poetry.lock
+  detection_source: proxy-server/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:48:59.000000000 Z
+- name: pymongo
+  description: Python driver for MongoDB &lt;http://www.mongodb.org&gt;
+  package_url: https://pypi.org/pymongo
+  version: 4.2.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19865/default_7975a21f3bf03129dc3bc4168cf7cb7ee2cc14cc.png
+  detection_source_url: discord-bot/poetry.lock
+  detection_source: proxy-server/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:48:59.000000000 Z
+- name: pytest
+  description: 'Pytest: simple powerful testing with Python'
+  package_url: https://pypi.org/pytest
+  version: 5.4.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19843/default_4604ff5dcb7f4d9c7b3833591c2142493951b19c.png
+  detection_source_url: discord-bot/poetry.lock
+  detection_source: proxy-server/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:48:59.000000000 Z
+- name: python-dotenv
+  description: Add .env support to your django/flask apps in development and deployments
+  package_url: https://pypi.org/python-dotenv
+  version: 0.20.0
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20095/default_3141eabecdd8efa55de73a33c43f2ac0d5bbf954.png
+  detection_source_url: discord-bot/poetry.lock
+  detection_source: proxy-server/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:48:59.000000000 Z
+- name: requests
+  description: Python HTTP for Humans
+  package_url: https://pypi.org/requests
+  version: 2.28.1
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19826/default_d7c684bf2673f008a9f02ac93901229297a22d7e.png
+  detection_source_url: discord-bot/poetry.lock
+  detection_source: discord-bot/pyproject.toml
+  last_updated_by: Gordon Pham-Nguyen
+  last_updated_on: 2022-06-20 19:48:59.000000000 Z
+  vulnerabilities:
+  - name: Unintended leak of Proxy-Authorization header in requests
+    cve_id: CVE-2023-32681
+    cve_url: https://github.com/advisories/GHSA-j8r2-6x86-q33q
+    detected_date: May 23
+    severity: moderate
+    first_patched: 2.31.0
